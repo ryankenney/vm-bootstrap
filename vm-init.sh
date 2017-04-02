@@ -33,6 +33,7 @@ echo "==== Enabling the Second NIC ===="
 #       Use "ifconfig -a -s" to verify.
 echo "" >> /etc/network/interfaces
 echo "auto enp0s8" >> /etc/network/interfaces
+echo "iface enp0s8 inet static" >> /etc/network/interfaces
 echo "address 192.168.56.${this_ip_octet}" >> /etc/network/interfaces
 echo "netmask 255.255.255.0" >> /etc/network/interfaces
 
@@ -45,4 +46,10 @@ echo "==== Setting the Hostname ===="
 sed -i "s/ubuntu/${this_hostname} ${this_hostname}.vboxnet0/g" /etc/hosts
 sed -i "s/ubuntu/${this_hostname}/g" /etc/hostname
 
+echo "==== Setup Firewall ===="
+ufw enable
+
+echo "==== Setup SSH Server ===="
+ufw allow ssh
+systemctl enable sshd
 

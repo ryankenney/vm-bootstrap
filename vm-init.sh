@@ -51,5 +51,5 @@ ufw enable
 
 echo "==== Setup SSH Server ===="
 ufw allow ssh
-systemctl enable sshd
+systemctl enable ssh
 

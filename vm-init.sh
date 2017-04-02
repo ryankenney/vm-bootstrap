@@ -24,9 +24,6 @@ if [[ "$EUID" -ne 0 ]]; then
 	exit 1
 fi
 
-echo "==== Resetting Admin Password ===="
-passwd
-
 echo "==== Enabling the Second NIC ===="
 # NOTE: This presumes that we want the VM on the first host-only network (vboxnet0 == 192.168.56.x subnet)
 # NOTE: This presumes that the second NIC appears as "enp0s8".
